@@ -1,0 +1,97 @@
+label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#regiTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+.contact-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 50px;
+    width: 600px;
+}
+.contact-wrap-bg{
+    background-color: rgba(0, 0, 0, 0.589);
+    display: flex;
+    justify-content: center;
+    top:0px;
+}
+.R-container{
+    width: 400px;
+}
+.cancel{
+    width: 100%;
+    font-size: 60px;
+    text-align: end;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.out{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+
+
+
+div,input,textarea{
+    box-sizing: border-box;
+}
+input[type=email], input[type=password], input[type=text]{
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(218, 217, 217);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+textarea{
+    border-radius: 5px;
+    border: 1px solid rgb(218, 217, 217);
+    width: 100%;
+}
+.con-name{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px 30px 50px;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+    
+}
+.con-footer{
+    display: flex;
+    justify-content: space-between;
+}
+input[type=submit]{
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: darkorange;
+    color: white;
+    font-size: 18px;
+    margin-left: auto;
+    display: block;
+    margin-top: 30px;
+}

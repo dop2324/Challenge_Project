@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
+body{
+    margin: 0;
+    font-family: 'Lato', 'Nanum Gothic', sans-serif, ;
+}
+
+.profile-wrap{
+    padding: 50px;
+}
+.profile-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.head-grow{
+    flex-grow: 0.7;
+}

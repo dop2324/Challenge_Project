@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
+
+
+.head {
+    padding: 20px;
+    display: flex;
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    justify-content: space-between;
+    width: auto;
+    background-color: white;
+    border-bottom: 3px solid #ccc;
+    position: sticky;
+    top:0;
+    z-index: 100;
+}
+
+.head-nav {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+/* 햄버거 메뉴 만들어보기! */
+.menu-trigger,
+.menu-trigger span {
+	display : inline-block;
+	transition : all .4s;
+	box-sizing : border-box;
+}
+.menu-trigger {
+	position : relative;
+    vertical-align: middle;
+	width : 50px;
+	height : 44px;
+    margin-right: 20px;
+}
+.menu-trigger span {
+	position : absolute;
+	left : 0;
+	width : 100%;
+	height: 4px;
+	background-color : rgb(8, 8, 8);
+	border-radius : 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+	top : 0;
+}
+.menu-trigger span:nth-of-type(2) {
+	top : 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+	bottom : 0;
+}
+
+
+.head-content-wrap {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    font-weight: bold;
+    width: 60%;
+}
+ .head-grow{
+    flex-grow: 0.7;
+} 
+.head-content a {
+    padding-left: 30px;
+    text-decoration: none;
+    color: rgba(128, 128, 128, 0.705);
+}
+
+a:hover {
+    color: black;
+}
+
+.profile {
+	
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    padding: 20px;
+    cursor: pointer;
+}
+.profile a{
+    color: black;
+    text-decoration: none;
+}
+
+div,
+input,
+textarea {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato', 'Nanum Gothic', sans-serif, ;
+}
+
+.main-background {
+    width: 100%;
+    height: 500px;
+    background-image: url(../IMG/3.jpg);
+    /* background-size: cover; */
+    /* background-size: contain; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    text-align: center;
+
+}
+
+.main-title-box {
+    background-color: black;
+    opacity: 0.7;
+    padding: 10px;
+
+}
+
+.main-title-box {
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-bottom: 5%;
+    color: #F0F0E6;
+
+}
+
+.main-btn {
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.main-btn a {
+    text-decoration: none;
+}
+a::before{
+    color:black;
+}
+
+.main-btn a:visited {
+    color: black;
+}
+
+.position {
+    position: relative;
+    top: 50px;
+}
+
+.content-box {
+    background-color: blanchedalmond;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 2%;
+    text-align: center;
+    position: relative;
+    top: -50px;
+}
+
+
+
+p {
+    transform: rotate(0.03deg);
+}
+
+i{
+    font-size: 30px;
+}
+.content-explian i {
+    background-color: darkorange;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding-top:33px;
+    color: white;
+}
+.content-explian{
+    display: flex;
+    width: 100%;
+    height: 35vh;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; 
+
+}
+.content-explian p{
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+/* 애니메이션 이미지 만드는 css */
+/* .product-item{
+    float:left;
+    width:33.3%;
+    padding: 20px;
+}
+.product-item img{
+    width:100%
+} */
+.product-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+.product-item{
+    padding: 20px;
+    width:33.3%;
+}
+.product-item img{
+    width:100%
+}
+.product-wrap{
+    background: #f6f6f6;
+    padding: 10px 0px 90px 0px;
+    margin-top: 100px;
+}
+
+.overlay{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: all 1s;
+}
+.overlay:hover{
+    opacity: 1;
+}
+.overlay p{
+    color: white;
+    text-align: center;
+    padding:30%;
+    font-size: 30px;
+}
+
+
+.span-nav-1{
+    margin-left: 90px;
+    z-index: 10;
+}
+
+.head-nav-content{
+    width: 300px;
+    background: rgba(0, 0, 0, 0.507);
+    color: whitesmoke;
+    height:100%;
+    padding:25px;
+    position: fixed;
+    margin-left: -400px;
+    top:0px;
+    /* z-index:5;
+    transition: all 1s; */
+    /* left:0px;
+    display: none; */
+}
+
+footer{
+    background: rgba(0, 0, 0, 0.644);
+    width: 100%;
+    height: 200px;
+    margin-top: 80px;
+    bottom: 0px;
+}
+footer div{
+    padding-top: 40px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+/* 이게 반응형 웹을 만드는 법 !!! */
+@media screen and (max-width:768px) { /* 모바일 */
+                /* breakpoint */
+                
+    /* 위의 조건일 때만  아래의 css 동작함 */
+    .head-content-wrap{
+        font-size: 10px;
+    }
+    .head-grow{
+        flex-grow: 0.1;
+    }
+    .main-title-box{
+        font-size: 10px;
+    }
+    .head a,.head p{
+        font-size:10px;
+    }
+    .profile{
+        width: 20px;
+        height: 20px;
+    }
+    .content-explian{
+        /* flex-direction: column;
+        flex-wrap: ; */
+        flex-flow: column nowrap;
+    }
+    
+}
+@media screen and (max-width:992px) { /* 태블릿 */
+
+    .content-explian{
+        flex-flow: row wrap;
+    }
+    .head-grow{
+    	flex-grow: 0.1;
+    }
+    .head-content-wrap {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    width: 100%;
+}
+    
+}
