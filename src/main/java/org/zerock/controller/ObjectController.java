@@ -26,9 +26,6 @@ public class ObjectController {
 	@GetMapping("/list")
 	public void list(Model model, @RequestParam("idbno") int idbno, MemberDTO member){
 		model.addAttribute("list", service.getList(idbno));
-		log.info("getList"+service.getList(idbno));
-		log.info("getList"+idbno);
-		
 	}
 	
 	@GetMapping("/register")
@@ -37,7 +34,7 @@ public class ObjectController {
 	}
 	
 	@PostMapping("/register")
-	public String register(ObjectVO object,@RequestParam("idbno") int idbno, RedirectAttributes rttr) {
+	public String register(ObjectVO object, RedirectAttributes rttr) {
 		
 		service.register(object);
 		
@@ -47,14 +44,14 @@ public class ObjectController {
 	}
 	
 	@GetMapping({"/get","/modify","/remove"})
-	public void get(@RequestParam("bno") int bno,@RequestParam("idbno") int idbno, Model model) {
+	public void get(@RequestParam("bno") int bno, Model model) {
 		model.addAttribute("object",service.get(bno));
 		
 	}
 	
 	
 	@PostMapping("/modify")
-	public String modify(ObjectVO object,@RequestParam("idbno") int idbno, RedirectAttributes rttr) {
+	public String modify(ObjectVO object, RedirectAttributes rttr) {
 		
 		if (service.modify(object)) {
 			rttr.addFlashAttribute("result","success");

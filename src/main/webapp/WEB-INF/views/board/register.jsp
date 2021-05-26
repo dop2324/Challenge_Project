@@ -70,7 +70,7 @@
                         	
                         	<div class="form=group">
                         		<label>Writer</label> 
-                        		<input class="form-control" name='writer'>
+                        		<input class="form-control" name='writer' value="${login.nickname}" readonly="readonly">
                         	</div>
                         	<div class="btn-wrap">
                         	<button type="submit" class="btn btn-outline-primary">전송하기</button>

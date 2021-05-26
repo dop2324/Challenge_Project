@@ -30,11 +30,11 @@ public class ReplyController {
 	@PostMapping(value = "/new", consumes = "application/json", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> create(@RequestBody ReplyVO vo) {
 
-		log.info("ReplyVO: " + vo);
+		
 
 		int insertCount = service.register(vo);
 
-		log.info("Reply INSERT COUNT: " + insertCount);
+		
 
 		return insertCount == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -51,8 +51,7 @@ public class ReplyController {
 
 		
 		Criteria cri = new Criteria(page, 10);
-		log.info("getList.................");
-		log.info(cri);
+		
 
 		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
 	}
@@ -60,7 +59,7 @@ public class ReplyController {
 	@GetMapping(value = "/{rno}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<ReplyVO> get(@PathVariable("rno") int rno) {
 		
-		log.info("get: " + rno);
+		
 		
 		return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
 	}
@@ -68,7 +67,7 @@ public class ReplyController {
 	@DeleteMapping(value = "/{rno}", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> remove(@PathVariable("rno") int rno) {
 		
-		log.info("remove: " + rno);
+	
 		
 		return service.remove(rno) == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -82,9 +81,7 @@ public class ReplyController {
 		
 		vo.setRno(rno);
 		
-		log.info("rno: " + rno);
 		
-		log.info("modify: " + vo);
 		
 		return service.modify(vo) == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

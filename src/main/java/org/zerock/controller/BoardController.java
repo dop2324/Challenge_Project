@@ -1,11 +1,11 @@
 package org.zerock.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -42,14 +42,14 @@ public class BoardController {
 	 * log.info("list"); model.addAttribute("list", service.getList()); }
 	 */
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
+	public void list(Criteria cri, Model model, HttpSession session) {
 
 		
 		model.addAttribute("list", service.getList(cri));
 		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		int total = service.getTotal(cri);
-
-		log.info("total : " + total);
+		session.getAttribute("login");
+		
 
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
@@ -60,7 +60,7 @@ public class BoardController {
 	}
 
 	@PostMapping("/register")
-	public String register(BoardVO board, RedirectAttributes rttr) {
+	public String register(BoardVO board, RedirectAttributes rttr, HttpSession session) {
 
 		
 
@@ -71,7 +71,7 @@ public class BoardController {
 		}
 
 		
-
+		session.getAttribute("login");
 		service.register(board);
 
 		rttr.addFlashAttribute("result", board.getBno());
@@ -80,10 +80,11 @@ public class BoardController {
 	}
 
 	@GetMapping({ "/get", "/modify" })
-	public void get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) {
+	public void get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model,HttpSession session) {
 
 		
 		model.addAttribute("board", service.get(bno));
+		session.getAttribute("login");
 	}
 
 	@PostMapping("/modify")

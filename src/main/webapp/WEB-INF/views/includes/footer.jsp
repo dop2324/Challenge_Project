@@ -18,6 +18,11 @@
             $('.span-nav').css('background','white');
             $('.span-nav').addClass('span-nav-1');
         });
+        $('#modalCloseBtn').click(function(){
+        	$('#myModal').modal('hide');
+        });
+        
+        $('.close').hide();
 </script>
 </body>
 

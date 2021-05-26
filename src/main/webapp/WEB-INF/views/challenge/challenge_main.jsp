@@ -33,7 +33,7 @@
 
  </style>
      <div class="content-wrap">
-        <div class="container-content container-lg">
+        <div class="container-content container-lg" name="keyword" id="keyword">
             <div class="img2"> <img src="/resources/IMG/study.jpg"></div>
             <div class="content-letter"><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quis iure facere? Fugiat eius reiciendis quos exercitationem excepturi voluptatibus ex, tenetur iure eligendi ea deserunt! Labore perspiciatis dicta exercitationem. Voluptate?</h4></div>
         </div>
@@ -49,7 +49,8 @@
     </div>
      <script>
     $(".container-content").on("click",function(){
-        location.href="/main/challenge/content";
+    	
+         location.href="/challenge/content"; 
     });
 
 </script>

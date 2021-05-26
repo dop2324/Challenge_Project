@@ -12,4 +12,6 @@ public interface MemberService {
 	
 	public MemberDTO login(MemberDTO member);
 	
+	public int idCheck(String id) throws Exception;
+	
 }

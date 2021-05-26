@@ -44,6 +44,13 @@ public class MemberServiceImpl implements MemberService {
 			return mapper.read(member);
 		}
 		
+		@Transactional
+		@Override
+		public int idCheck(String id) throws Exception {
+			
+			 return mapper.idCheck(id);
+		}
+		
 		
 		
 

@@ -52,7 +52,7 @@
             </div>
             
             <div class="head-content">
-                <a href="/main/challenge">Challenge</a>
+                <a href="/challenge/">Challenge</a>
             </div>
             <div class="head-content">
                 <a href="/board/list">Community</a>
@@ -60,7 +60,7 @@
            	<c:catch>
            <c:choose>
            	<c:when test="${empty login }">
-           	<div class="head-content" style="padding-left: 50px;" >
+           	<div class="head-content js-login" style="padding-left: 50px;" >
                 <a href="/main/login">Login</a>
             </div>
             <div class="head-content">

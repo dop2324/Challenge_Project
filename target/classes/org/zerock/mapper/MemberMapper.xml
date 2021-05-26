@@ -18,5 +18,8 @@
 	select * from tbl_member where id= #{id} and password= #{password}
 </select>
 
+<select id="idCheck" resultType="int">
+	select count(*) from tbl_member where id= #{id}
+</select>
 </mapper>
 

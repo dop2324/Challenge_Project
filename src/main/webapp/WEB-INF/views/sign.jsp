@@ -80,19 +80,21 @@ footer{
 		<form name="registerform" action="/main/register" method="post" id="registerform" >
 		
 				<!-- 아이디 -->
-				<div class="fieldlabel"><label for="userId" class="regTextColor">아이디</label></div>
-				<div class="formfield"><input type="text" id="userId" name="id" maxlength="20" value="" autocomplete="off">
+				<div class="fieldlabel"><label for="id" class="regTextColor">아이디</label></div>
+				<div class="formfield"><input type="text" id="id" name="id" maxlength="20" value="" autocomplete="off">
 				 <!-- <span ><input type="button" name="idCheck" value="중복검사" id="idCheck"></span> -->
 				
 				</div>
-				<span class="error_next_box" id="idMsg">5~20자의 영문 소문자,숫자만 사용 가능합니다.</span>
+				<span class="idChkMsg" style="color: green;">사용가능한 아이디 입니다.</span>
+				<span class="idChkMsgE" style="color: red;">아이디가 중복됩니다.</span>
+				<span class="error_next_box" id="idMsg" style="color:red;">id를 입력해주세요</span>
 				<!-- 비밀번호 -->
 				<div class="fieldlabel"><label for="userPw" class="regTextColor">패스워드</label></div>
 				<div class="formfield">
 		<input type="password" id="userPw" name="password" maxlength="16" autocomplete="off">
 		
 		</div>
-		<span class="error_next_box" id="pwMsg">8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</span>
+		<span class="error_next_box" id="pwMsg">비밀번호를 입력해주세요</span>
 				<!-- 비밀번호 확인 -->
 				<div class="fieldlabel"><label for="userPwCheck" class="regTextColor">패스워드확인</label></div>
 				<div class="formfield">
@@ -115,7 +117,7 @@ footer{
 				<div class="fieldlabel"><label for="email01" class="regTextColor">이메일</label></div>
 			   <div class="formfield">
 			   <input type="email" id="emailaddress" name="email" placeholder="example@naver.com" value="" autocomplete="off">
-			   
+			   </div>
 			   
 			   
 				<!-- 가입하기 버튼  -->
@@ -130,10 +132,39 @@ footer{
 	</div>
 </div>
 </div>
-</div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
 	$('.error_next_box').hide();
+	$('.idChkMsg').hide();
+	$('.idChkMsgE').hide();
+	$('#id').on("propertychange change keyup paste input",function(){
+		
+		var id = $("#id").val();
+		var data = {id : id};
+	
+		$.ajax({
+			type: "post",
+			url : "/main/idCheck",
+			data : data,
+			success : function(result){
+				console.log(id);
+				console.log(result);
+				if(result != 'fail'&&$('#id').val()!=''){
+					$('.idChkMsg').show();
+					$('.idChkMsgE').hide();
+					$('#idMsg').hide();
+				}else if($('#id').val()==''){
+					$('#idMsg').show();
+					$('.idChkMsg').hide();
+				}else{
+					$('.idChkMsgE').show();
+					$('.idChkMsg').hide();
+					$('#idMsg').hide();
+				}
+			}
+		});
+	});
 </script>
  
  <%@include file="includes/footer.jsp" %>

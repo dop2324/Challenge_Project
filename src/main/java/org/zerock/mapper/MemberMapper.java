@@ -8,4 +8,6 @@ public interface MemberMapper {
 	public int delete(int idbno);
 	
 	public MemberDTO read(MemberDTO member);
+	
+	public int idCheck(String id);
 }

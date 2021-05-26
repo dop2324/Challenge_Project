@@ -102,15 +102,24 @@
                         		<input class="form-control" name='writer'
                         		value='<c:out value="${board.writer }"/>' readonly="readonly">
                         	</div>
-                        	
+                        	<c:catch>
+                        	<c:choose>
+           					<c:when test="${board.writer == login.nickname}">
                         	<div class="btn-wrap">
                         	<button data-oper="modify" class="btn btn-outline-success">Modify</button>
                         	
                         	
                         	<button data-oper="list" class="btn btn-outline-info" >List</button>
                         	</div>
-                        
-                        
+                        	</c:when>
+                        	 <c:otherwise>
+                        	 <div class="btn-wrap">
+                        	 <button data-oper="list" class="btn btn-outline-info" >List</button>
+                        	 </div>
+                        	  </c:otherwise>
+          				 </c:choose>
+          					 </c:catch>
+                        	
                         
                         
                         
@@ -186,7 +195,7 @@
                                         	</div>
                                         	<div class="form-group">
                                         		<label>Replyer</label>
-                                        		<input class="form-control" name='replyer' value="replyer">
+                                        		<input class="form-control" name='replyer' value="${login.nickname} ㅎㅎ" readonly="readonly" >
                                         	</div>
                                         	<div class="form-group">
                                         		<label>Reply Date</label>
@@ -194,8 +203,9 @@
                                         	</div>
                                            
                                         </div>
-                                        
+                                        	
                                         <div class="modal-footer">
+										
                                         	<button id='modalModBtn' type="button"  class="btn btn-warning">Modify</button>
                                         	<button id='modalRemoveBtn' type="button"   class="btn btn-danger">Remove</button>
                                         	<button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
@@ -214,7 +224,17 @@
                         <script>
  								
 							$(document).ready(function(){	
-								 
+								
+									
+								 if($(".js-login a").html()=="Login"){
+									
+							  		$(".btn-wrap").hide();
+							  		$("#addReplyBtn").hide();
+								}else{
+									$(".btn-wrap").show();
+							  		$("#addReplyBtn").show();
+								};
+								
 								var bnoValue = '<c:out value="${board.bno}"/>';
 								var replyUL = $(".chat"); /* chat이라는 클래스 선택 */
 								
@@ -320,7 +340,9 @@
 								   
 								   $("#addReplyBtn").on("click", function(e){
 									   
-									   modal.find("input").val("");
+									   modal.find("input[name='reply']").val("");
+									   modal.find("input[name='replyDate']").val("");
+									   modal.find("input[name='replyer']").val("${login.nickname}");
 									   modalInputReplyDate.closest("div").hide();
 									   modal.find("button[id !='modalCloseBtn']").hide(); // id 값이 modalCloseBtn이 아닌 것을 숨겨라
 									   modalRegisterBtn.show();

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.MemberDTO;
@@ -28,13 +30,13 @@ public class MainController {
 		
 	}
 	@PostMapping("/register")
-	public String register(MemberDTO member, RedirectAttributes rttr) {
+	public String register(MemberDTO member,HttpSession session, RedirectAttributes rttr,ObjectVO object) {
 		
 		service.register(member);
 		
-		rttr.addFlashAttribute("result", member.getIdbno());
 		
-		return "redirect:/main/home";
+		rttr.addFlashAttribute("result", member.getIdbno());
+		return "redirect:/main/login";
 	}
 	
 	
@@ -67,6 +69,7 @@ public class MainController {
 		MemberDTO dto= service.login(member);
 		//memeberDTO에 있는 변수들을 세션 영역에 저장
 		session.setAttribute("login", dto);
+		
 		if(session.getAttribute("login")!=null) {
 			return "redirect:/main/home";
 		}else {
@@ -74,12 +77,17 @@ public class MainController {
 		}
 		
 	}
-	@GetMapping("/challenge")
-	public String challenge() {
-		return "/challenge/challenge_main";
+	
+	@RequestMapping(value="/idCheck",method = RequestMethod.POST)
+	@ResponseBody
+	public String idCheck(String id) throws Exception{
+		int result = service.idCheck(id);
+		
+		if(result !=0) {
+			return "fail";
+		}else {
+			return "success";
+		}
 	}
-	@GetMapping("/challenge/content")
-	public String challengeContent() {
-		return "/challenge/challenge_content";
-	}
+	
 }

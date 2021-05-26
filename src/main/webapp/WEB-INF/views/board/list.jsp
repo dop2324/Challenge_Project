@@ -80,8 +80,8 @@
                                          처리가 완료 되었습니다.
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="modalCloseBtn">Close</button>
+                                            
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -144,7 +144,13 @@
 				  $("#myModal").modal("show");
 			  }
 			  $("#regBtn").on("click",function(){
-				  	self.location = "/board/register";
+				  	if($(".js-login a").html()=="Login"){
+				  		alert("로그인을 해주세요");
+				  		self.location = "/board/list";
+				  	}else{
+				  		self.location = "/board/register";
+				  	}
+				  	
 			  });
 			  
 			  var actionForm = $("#actionForm");
