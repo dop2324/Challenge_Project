@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
-<footer>
+<footer class="container-fluid" style=" left:0; bottom:0; width: 100%;">
     <div>
         Tel) 010 - 9923 - 2910
     </div>

@@ -16,8 +16,9 @@ public interface ObjectService {
 	
 	public boolean remove(int bno);
 	
-	public List<ObjectVO> getList(int idbno);
+	public void delete(int idbno);
 	
+	public List<ObjectVO> getList(int idbno);
 	
 	
 	

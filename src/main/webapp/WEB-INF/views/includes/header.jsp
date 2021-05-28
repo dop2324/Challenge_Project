@@ -70,7 +70,7 @@
             <c:otherwise>
     
              <div class="head-content">
-                <a href="/object/list?idbno=${login.idbno}">MY Plan</a>
+                <a href="/object/list?idbno=${login.idbno}">MY</a>
             </div>
             	<div class="head-content" >
                 <a href="/main/logout">Logout</a>

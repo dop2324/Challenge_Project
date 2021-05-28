@@ -82,8 +82,10 @@ a {
                 <input type="text" class="form-input" style="margin-bottom: 20px;" name="id" id="id">
                 
                     <p>비밀번호</p>
-                <input type="password" class="form-input" name="password" id="password">
-                
+                <input type="password" class="form-input" name="password" id="password"  style="margin-bottom: 20px;">
+                <c:if test="${result == 0}">
+                <div class="login_error" style="color: red;">아이디와 비밀번호를 한번 더 확인 해주세요</div>
+                </c:if>
             </div>
                
                 

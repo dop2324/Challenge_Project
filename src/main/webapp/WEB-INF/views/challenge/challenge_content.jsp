@@ -149,6 +149,17 @@
     </div>
    
    <script>
+   $.ajax({
+       method:"GET",
+       url: "/challenge/content",
+       data: {query:"30일 공부 챌린지"},
+     	success:function(data){
+     		console.log(data);
+     	},
+     	error:function(error){
+     		console.log(error);
+     	}
+   });
    
     </script>
 

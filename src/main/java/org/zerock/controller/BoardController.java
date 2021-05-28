@@ -118,41 +118,45 @@ public class BoardController {
 	 * return "redirect:/board/list" + cri.getListLink(); }
 	 */
 
-	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	public ResponseEntity<List<BoardAttachVO>> getAttachList(int bno) {
-
-		
-
-		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
-
-	}
+	/*
+	 * @GetMapping(value = "/getAttachList", produces =
+	 * MediaType.APPLICATION_JSON_UTF8_VALUE)
+	 * 
+	 * @ResponseBody public ResponseEntity<List<BoardAttachVO>> getAttachList(int
+	 * bno) {
+	 * 
+	 * 
+	 * 
+	 * return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
+	 * 
+	 * }
+	 */
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) {
 
 		
 
-		List<BoardAttachVO> attachList = service.getAttachList(bno);
+		/* List<BoardAttachVO> attachList = service.getAttachList(bno); */
 
 		if (service.remove(bno)) {
 
 			// delete Attach Files
-			deleteFiles(attachList);
+			/* deleteFiles(attachList); */
 
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list" + cri.getListLink();
 	}
 
-	private void deleteFiles(List<BoardAttachVO> attachList) {
-
-		if (attachList == null || attachList.size() == 0) {
-			return;
-		}
+	/*
+	 * private void deleteFiles(List<BoardAttachVO> attachList) {
+	 * 
+	 * if (attachList == null || attachList.size() == 0) { return; }
+	 */
 
 		
 
-		attachList.forEach(attach -> {
+		/*attachList.forEach(attach -> {
 			try {
 				Path file = Paths.get(
 						"C:\\upload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
@@ -171,6 +175,6 @@ public class BoardController {
 				log.error("delete file error" + e.getMessage());
 			} // end catch
 		});// end foreachd
-	}
+*/	}
 
-}
+

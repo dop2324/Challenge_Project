@@ -21,5 +21,5 @@ public void register (BoardVO board);
 	
 	public int getTotal(Criteria cri);
 	
-	public List<BoardAttachVO> getAttachList(int bno);
+	/* public List<BoardAttachVO> getAttachList(int bno); */
 }

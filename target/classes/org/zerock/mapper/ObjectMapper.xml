@@ -35,6 +35,9 @@
 <delete id="delete">
 	delete from tbl_object where bno= #{bno}
 </delete>
+<delete id="Mdelete">
+	delete from tbl_object where idbno= #{idbno}
+</delete>
 
 <update id="update">
  update tbl_object set idbno = #{idbno}, object = #{object}, period = #{period}, percent = #{percent} where bno = #{bno}

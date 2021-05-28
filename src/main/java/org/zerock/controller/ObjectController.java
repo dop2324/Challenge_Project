@@ -68,6 +68,13 @@ public class ObjectController {
 		rttr.addAttribute("idbno",object.getIdbno());
 		return "redirect:/object/list";
 	}
+	@GetMapping("/delete")
+	public String delete(ObjectVO object,@RequestParam("idbno") int idbno, RedirectAttributes rttr) {
+		
+		service.delete(idbno);
+		rttr.addAttribute("idbno",object.getIdbno());
+		return "redirect:/main/remove";
+	}
 }
 
 

@@ -29,6 +29,13 @@ public class MainController {
 	public void register() {
 		
 	}
+	@GetMapping("/remove")
+	public String remove(MemberDTO member,HttpSession session) {
+		
+		service.remove(member.getIdbno());
+		session.invalidate();
+		return "redirect:/main/home";
+	}
 	@PostMapping("/register")
 	public String register(MemberDTO member,HttpSession session, RedirectAttributes rttr,ObjectVO object) {
 		
@@ -38,6 +45,7 @@ public class MainController {
 		rttr.addFlashAttribute("result", member.getIdbno());
 		return "redirect:/main/login";
 	}
+	
 	
 	
 	@GetMapping("/home")
@@ -64,17 +72,22 @@ public class MainController {
     }
 
 	@PostMapping("/login")
-	public String loginCheck(MemberDTO member, HttpSession session, ObjectVO object) {
+	public String loginCheck(MemberDTO member, HttpSession session, ObjectVO object, RedirectAttributes rttr) {
 		
 		MemberDTO dto= service.login(member);
 		//memeberDTO에 있는 변수들을 세션 영역에 저장
-		session.setAttribute("login", dto);
 		
-		if(session.getAttribute("login")!=null) {
-			return "redirect:/main/home";
-		}else {
+		if(dto == null) {
+			int result = 0;
+			rttr.addFlashAttribute("result",result);
 			return "redirect:/main/login";
 		}
+		session.setAttribute("login", dto);
+		return "redirect:/main/home";
+		/*
+		 * if(session.getAttribute("login")!=null) { return "redirect:/main/home"; }else
+		 * { return "redirect:/main/login"; }
+		 */
 		
 	}
 	

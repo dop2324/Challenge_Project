@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.zerock.domain.MemberDTO;
 import org.zerock.domain.ObjectVO;
 import org.zerock.mapper.ObjectMapper;
 
@@ -52,5 +51,10 @@ public class ObjectServiceImpl implements ObjectService{
 		
 		mapper.insertSelectKey(object);
 		
+	}
+//	회원정보를 삭제했을 때 외래키 설정 때문에 자식요소인 object 테이블을 먼저 삭제해야한다.
+	@Override
+	public void delete(int idbno) {
+		mapper.Mdelete(idbno);
 	}
 }

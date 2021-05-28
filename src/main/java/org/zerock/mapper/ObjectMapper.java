@@ -21,4 +21,6 @@ public interface ObjectMapper {
 	public int delete(int bno);
 	
 	public int update(ObjectVO object);
+
+	public void Mdelete(int idbno);
 }

@@ -33,9 +33,9 @@ tbody a:visited {
 	display:none;
 }
     </style>
-
+<div class= "container-wrap" style="height: 140vh;">
    <div class="container-lg">
-    <div class="profile-wrap">
+     <div class="profile-wrap">  
         <div class="profile-header">
             <div class="profile-title">Object-Management</div>
             <div class="head-grow"></div>
@@ -69,8 +69,43 @@ tbody a:visited {
             
           </tbody>
       </table>
+      <div class="btn-wrap" style="display:flex; justify-content: flex-end;">
+      <div class="info-toggle btn btn-outline-warning" >회원 정보 보기</div>
+      </div>
+      
+       <!-- 회원정보 테이블 --> 
+      <div class="container-sm">
+      <div class="m-info mb-3" style="border-bottom: 1px solid black; margin-top:100px;">회원정보</div>
+      <div class="m-wrap" style="padding-left: 10px;">
+      <div class="m-title">아이디</div>
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.id }" readonly="readonly" >
+<div class="m-title">비밀번호</div>
+<input type="password" class="m-content input-group mb-3" value="${sessionScope.login.password }" readonly="readonly" >
+<div class="m-title">성별</div>
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.gender }" readonly="readonly" >
+<div class="m-title">이름</div>
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.name }" readonly="readonly" >
+<div class="m-title">닉네임</div>
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.nickname }" readonly="readonly" >
+<div class="m-title">이메일</div>
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.email }" readonly="readonly" >
+</div>
+<div class="btn-wrap" style="display:flex; justify-content: flex-end;">
+      
+      <div class="member-remove mb-3" style="margin-left:30px;" ><a href="/object/modify?idbno=${login.idbno}" class="btn btn-outline-danger">회원 탈퇴</a></div>
     </div>
+</div>
+	
+     </div> 
+</div>
 </div>  
 
+<script>
+	$(".container-sm").hide();
+	
+	$(".info-toggle").click(function(){
+		$(".container-sm").toggle();
+	});
+</script>
      
 <%@include file="../includes/footer.jsp" %>

@@ -4,6 +4,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.zerock.domain.ApiVO;
 import org.zerock.service.ApiService;
 
 import lombok.AllArgsConstructor;
@@ -22,9 +23,14 @@ public class ChallengeController {
 	}
 	
 	@GetMapping(value="/content",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String challengeContent() {
+	public String challengeContent(ApiVO api) {
 		
-		 ApiService.main("30일 공부 챌린지");
+		
+		String result = ApiService.main("30일 공부 챌린지");
+		
+		ApiService.Parsing(result);
+		
+		System.out.println(ApiService.Parsing(result));
 		return "/challenge/challenge_content";
 	}
 	

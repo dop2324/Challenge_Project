@@ -11,11 +11,20 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.ui.Model;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+
+
 
 
 public class ApiService {
 	
+	 
+
 	/*
 	 * public static void Api(String[] args) {
 	 * 
@@ -51,7 +60,6 @@ public class ApiService {
 		 System.out.println(responseBody);
 		 
 		
-        
         return responseBody;
     }
 
@@ -110,4 +118,28 @@ public class ApiService {
             throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
         }
     }
+ 
+	
+	  public static String Parsing(String jsonData) { 
+		  try { JSONParser jsonParse =new JSONParser();
+	  
+	  //JSONParse에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다. 
+		  JSONArray jsonArr = (JSONArray) jsonParse.parse(jsonData);
+	  
+	 // JSONArray items = (JSONArray)jsonArr.get("itmes");
+		/* JSONObject items = (JSONObject)jsonObj.get("items"); */
+	  
+	  //JSONObject title = (JSONObject)items.get("title");
+	  
+	  //String titleMsg = (String)title.get("translatedText");
+	  
+	  return jsonArr; } catch (ParseException e) { e.printStackTrace(); return "";
+	  
+	  } };
+	 
+	 
+    
+    
+
+
 }
