@@ -36,17 +36,12 @@ public class BoardController {
 
 	private BoardService service;
 
-	/*
-	 * @GetMapping("/list") public void list(Model model) {
-	 * 
-	 * log.info("list"); model.addAttribute("list", service.getList()); }
-	 */
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model, HttpSession session) {
 
 		
 		model.addAttribute("list", service.getList(cri));
-		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
 		int total = service.getTotal(cri);
 		session.getAttribute("login");
 		
@@ -64,11 +59,7 @@ public class BoardController {
 
 		
 
-		if (board.getAttachList() != null) {
-
-			board.getAttachList().forEach(attach -> log.info(attach));
-
-		}
+		
 
 		
 		session.getAttribute("login");
@@ -95,86 +86,30 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 
-		/*
-		 * rttr.addAttribute("pageNum", cri.getPageNum()); rttr.addAttribute("amount",
-		 * cri.getAmount()); rttr.addAttribute("type", cri.getType());
-		 * rttr.addAttribute("keyword", cri.getKeyword());
-		 */
+		
 
 		return "redirect:/board/list" + cri.getListLink();
 	}
 
-	/*
-	 * @PostMapping("/remove") public String remove(@RequestParam("bno") int
-	 * bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-	 * 
-	 * log.info("remove..." + bno); if(service.remove(bno)) {
-	 * rttr.addFlashAttribute("result","success"); }
-	 * 
-	 * rttr.addAttribute("pageNum", cri.getPageNum()); rttr.addAttribute("amount",
-	 * cri.getAmount()); rttr.addAttribute("type", cri.getType());
-	 * rttr.addAttribute("keyword", cri.getKeyword());
-	 * 
-	 * return "redirect:/board/list" + cri.getListLink(); }
-	 */
-
-	/*
-	 * @GetMapping(value = "/getAttachList", produces =
-	 * MediaType.APPLICATION_JSON_UTF8_VALUE)
-	 * 
-	 * @ResponseBody public ResponseEntity<List<BoardAttachVO>> getAttachList(int
-	 * bno) {
-	 * 
-	 * 
-	 * 
-	 * return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
-	 * 
-	 * }
-	 */
+	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) {
 
 		
 
-		/* List<BoardAttachVO> attachList = service.getAttachList(bno); */
+		
 
 		if (service.remove(bno)) {
 
-			// delete Attach Files
-			/* deleteFiles(attachList); */
+		
 
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list" + cri.getListLink();
 	}
 
-	/*
-	 * private void deleteFiles(List<BoardAttachVO> attachList) {
-	 * 
-	 * if (attachList == null || attachList.size() == 0) { return; }
-	 */
-
-		
-
-		/*attachList.forEach(attach -> {
-			try {
-				Path file = Paths.get(
-						"C:\\upload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
-
-				Files.deleteIfExists(file);
-
-				if (Files.probeContentType(file).startsWith("image")) {
-
-					Path thumbNail = Paths.get("C:\\upload\\" + attach.getUploadPath() + "\\s_" + attach.getUuid() + "_"
-							+ attach.getFileName());
-
-					Files.delete(thumbNail);
-				}
-
-			} catch (Exception e) {
-				log.error("delete file error" + e.getMessage());
-			} // end catch
-		});// end foreachd
-*/	}
+	
+	
+}
 
 

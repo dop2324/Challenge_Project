@@ -195,7 +195,7 @@
                                         	</div>
                                         	<div class="form-group">
                                         		<label>Replyer</label>
-                                        		<input class="form-control" name='replyer' value="${login.nickname} ㅎㅎ" readonly="readonly" >
+                                        		<input class="form-control" name='replyer' value="${login.nickname}" readonly="readonly" >
                                         	</div>
                                         	<div class="form-group">
                                         		<label>Reply Date</label>

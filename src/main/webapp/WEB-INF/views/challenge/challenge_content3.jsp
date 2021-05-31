@@ -104,7 +104,7 @@
         <div class="container-lg step-wrap">
             
             <div class="step btn-outline-primary">
-                하고자하는 챌린지를 설정해보세요
+                하고자 하는 챌린지를 설정해보세요
             </div>
             <div class="step btn-outline-secondary">
                 하루하루 목표 달성량을 기록하세요
