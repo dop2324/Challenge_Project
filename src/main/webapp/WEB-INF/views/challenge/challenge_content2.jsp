@@ -94,8 +94,8 @@
 <div class="content-wrap">
         <div class="container-content container-lg">
             
-            <div class="img"> <img src="/resources/IMG/study.jpg"></div>
-            <div class="content-letter"><h4>Let's start Study Challenge!!</h4></div>
+            <div class="img"> <img src="/resources/IMG/diet2.jpg"></div>
+            <div class="content-letter"><h4>Let's start Exercise Challenge!!</h4></div>
             
         </div>
     </div>
@@ -104,13 +104,13 @@
         <div class="container-lg step-wrap">
             
             <div class="step btn-outline-primary">
-                하루하루 공부한 내용을 자신의 블로그에 기록해보세요
+                자신의 운동 목표를 설정하세요
             </div>
             <div class="step btn-outline-secondary">
-                자신의 공부 방법을 공유해보세요
+                하루하루 운동 달성량을 기록하세요
             </div>
             <div class="step btn-outline-success">
-                30일 챌린지 성공을 sns에 공유하세요
+                30일 챌린지 성공을 블로그에 공유하세요
             </div>
             
         </div>

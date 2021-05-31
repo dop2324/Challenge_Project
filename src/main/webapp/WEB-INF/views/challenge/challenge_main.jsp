@@ -33,25 +33,33 @@
 
  </style>
      <div class="content-wrap">
-        <div class="container-content container-lg" name="keyword" id="keyword">
+        <div class="container-content container-lg link1" name="keyword" id="keyword">
             <div class="img2"> <img src="/resources/IMG/study.jpg"></div>
-            <div class="content-letter"><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quis iure facere? Fugiat eius reiciendis quos exercitationem excepturi voluptatibus ex, tenetur iure eligendi ea deserunt! Labore perspiciatis dicta exercitationem. Voluptate?</h4></div>
+            <div class="content-letter"><h4>Let's start Study Challenge!!</h4></div>
         </div>
-        <div class="container-content container-lg">
+        <div class="container-content container-lg link2">
             <div class="img2">
                  <img src="/resources/IMG/diet2.jpg"></div>
-            <div class="content-letter"><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quis iure facere? Fugiat eius reiciendis quos exercitationem excepturi voluptatibus ex, tenetur iure eligendi ea deserunt! Labore perspiciatis dicta exercitationem. Voluptate?</h4></div>
+            <div class="content-letter"><h4>Let's start Exercise Challenge!!</h4></div>
         </div>
-        <div class="container-content container-lg">
+        <div class="container-content container-lg link3">
             <div class="img2"> <img src="/resources/IMG/other.jpg"></div>
-            <div class="content-letter"><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quis iure facere? Fugiat eius reiciendis quos exercitationem excepturi voluptatibus ex, tenetur iure eligendi ea deserunt! Labore perspiciatis dicta exercitationem. Voluptate?</h4></div>
+            <div class="content-letter"><h4>Other Challenge</h4></div>
         </div>
     </div>
      <script>
-    $(".container-content").on("click",function(){
+    $(".link1").on("click",function(){
     	
          location.href="/challenge/content"; 
     });
+    $(".link2").on("click",function(){
+    	
+        location.href="/challenge/content2"; 
+   });
+    $(".link3").on("click",function(){
+    	
+        location.href="/challenge/content3"; 
+   });
 
 </script>
       <%@include file="../includes/footer.jsp" %>

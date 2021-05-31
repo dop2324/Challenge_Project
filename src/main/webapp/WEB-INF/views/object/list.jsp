@@ -53,11 +53,11 @@ tbody a:visited {
             </tr>
           </thead>
           <tbody>
-          <c:forEach items="${list}" var="object">
+          <c:forEach items="${list}" var="object" varStatus="status">
            
           <input type="text" name="idbno" class="idbno" id="idbno" value='<c:out value="${object.idbno}"/>' readonly="readonly">
           <tr>
-          <th scope="row"><c:out value="${object.bno}" /></th>
+          <th scope="row"><c:out value="${status.count}" /></th>
               <td><a href='/object/get?bno=<c:out value="${object.bno}" />&idbno=<c:out value="${object.idbno}" />'><c:out value="${object.object}" /></a></td>
               <td><c:out value="${object.period}" /></td>
               <td><div class="progress">

@@ -8,13 +8,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.ui.Model;
+import org.zerock.domain.ApiVO;
 
 
 
@@ -23,7 +27,7 @@ import org.json.simple.parser.ParseException;
 
 public class ApiService {
 	
-	 
+	
 
 	/*
 	 * public static void Api(String[] args) {
@@ -57,7 +61,7 @@ public class ApiService {
         String responseBody = get(apiURL,requestHeaders);
 
         
-		 System.out.println(responseBody);
+		 
 		 
 		
         return responseBody;
@@ -120,26 +124,41 @@ public class ApiService {
     }
  
 	
-	  public static String Parsing(String jsonData) { 
-		  try { JSONParser jsonParse =new JSONParser();
 	  
+	  public static List<ApiVO> getList(String jsonData) { 
+		  JSONParser jsonParse =new JSONParser();
+	  		List<ApiVO> resultList = new ArrayList<ApiVO>();
+		  try { 
 	  //JSONParse에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다. 
-		  JSONArray jsonArr = (JSONArray) jsonParse.parse(jsonData);
-	  
-	 // JSONArray items = (JSONArray)jsonArr.get("itmes");
-		/* JSONObject items = (JSONObject)jsonObj.get("items"); */
-	  
-	  //JSONObject title = (JSONObject)items.get("title");
-	  
-	  //String titleMsg = (String)title.get("translatedText");
-	  
-	  return jsonArr; } catch (ParseException e) { e.printStackTrace(); return "";
-	  
-	  } };
-	 
-	 
-    
-    
+		  JSONObject jsonObj = (JSONObject) jsonParse.parse(jsonData);
 
+		  
+		 JSONArray items = (JSONArray)jsonObj.get("items"); 
+		 
+		
+		 for(int i=0;i<items.size();i++){
+
+			 
+
+				JSONObject item = (JSONObject) items.get(i);
+                ApiVO vo = new ApiVO();
+                vo.setTitle((String)item.get("title"));
+                vo.setLink((String)item.get("link"));
+                vo.setBloggername((String)item.get("bloggername"));
+                resultList.add(vo); 
+			}
+		 		
+		 
+		
+	  
+		  } 
+		  catch (ParseException e) { 
+	
+			  e.printStackTrace(); 
+	  
+	  } 
+		  return resultList;
+	  };
+	 
 
 }
