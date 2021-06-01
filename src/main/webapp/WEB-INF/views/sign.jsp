@@ -82,25 +82,19 @@ footer{
 				<!-- 아이디 -->
 				<div class="fieldlabel"><label for="id" class="regTextColor">아이디</label></div>
 				<div class="formfield"><input type="text" id="id" name="id" maxlength="20" value="" autocomplete="off">
-				 <!-- <span ><input type="button" name="idCheck" value="중복검사" id="idCheck"></span> -->
-				
 				</div>
 				<span class="idChkMsg" style="color: green;">사용가능한 아이디 입니다.</span>
 				<span class="idChkMsgE" style="color: red;">아이디가 중복됩니다.</span>
-				<span class="error_next_box" id="idMsg" style="color:red;">id를 입력해주세요</span>
+				
 				<!-- 비밀번호 -->
 				<div class="fieldlabel"><label for="userPw" class="regTextColor">패스워드</label></div>
 				<div class="formfield">
-		<input type="password" id="userPw" name="password" maxlength="16" autocomplete="off">
-		
-		</div>
-		<span class="error_next_box" id="pwMsg">비밀번호를 입력해주세요</span>
+				<input type="password" id="userPw" name="password" maxlength="16" autocomplete="off"></div>
 				<!-- 비밀번호 확인 -->
 				<div class="fieldlabel"><label for="userPwCheck" class="regTextColor">패스워드확인</label></div>
 				<div class="formfield">
-		<input type="password" id="userPwCheck" name="userPwCheck" maxlength="16" autocomplete="off">
-		</div>
-		<span class="error_next_box" id="pwCheckMsg">패스워드를 다시한번 확인해주세요</span>
+				<input type="password" id="userPwCheck" name="userPwCheck" maxlength="16" autocomplete="off">
+				</div>
 		<!-- 성별 둘 중에 하나만 선택하여야 하므로 type=radio -->
 				<div class="fieldlabel"><label class="regTextColor">성별</label></div>
 				<div class="formfield">
@@ -118,8 +112,6 @@ footer{
 			   <div class="formfield">
 			   <input type="email" id="emailaddress" name="email" placeholder="example@naver.com" value="" autocomplete="off">
 			   </div>
-			   
-			   
 				<!-- 가입하기 버튼  -->
 				<div class="btnfield">
 					<input type="submit" id="apply" value="가입하기" class="btn pull-right btn-warning" style="color:white;">
@@ -167,9 +159,6 @@ footer{
 	});
 	$("#registerform").on("submit",function(e){
 		if($('#id').val()==''){
-			alert("아이디를 입력해주세요")
-			e.preventDefault();
-		}else if($('#id').val()==''){
 			alert("아이디를 입력해주세요")
 			e.preventDefault();
 		}else if($('#userPw').val()==''){
