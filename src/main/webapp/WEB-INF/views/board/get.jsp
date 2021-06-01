@@ -225,7 +225,7 @@
  								
 							$(document).ready(function(){	
 								
-									
+								
 								 if($(".js-login a").html()=="Login"){
 									
 							  		/* $(".btn-wrap").hide(); */
@@ -352,7 +352,7 @@
 								   $(".chat").on("click", "li", function(e){
 										
 										var rno = $(this).data("rno");
-										
+										var nickname = "<c:out value="${login.nickname }"/>";
 										replyService.get(rno, function(reply){
 											
 											modalInputReply.val(reply.reply);
@@ -361,9 +361,10 @@
 									        modal.data("rno", reply.rno);
 									        
 									        modal.find("button[id !='modalCloseBtn']").hide();
+									        if(reply.replyer== nickname){
 									        modalModBtn.show();
 									        modalRemoveBtn.show();
-									        
+									        }
 									        $(".modal").modal("show");
 
 										});

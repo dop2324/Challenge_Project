@@ -165,6 +165,30 @@ footer{
 			}
 		});
 	});
+	$("#registerform").on("submit",function(e){
+		if($('#id').val()==''){
+			alert("아이디를 입력해주세요")
+			e.preventDefault();
+		}else if($('#id').val()==''){
+			alert("아이디를 입력해주세요")
+			e.preventDefault();
+		}else if($('#userPw').val()==''){
+			alert("패스워드를 입력해주세요")
+			e.preventDefault();
+		}else if($('#userPw').val()!=$('#userPwCheck').val()){
+			alert("패스워드확인란을 입력해주세요")
+			e.preventDefault();
+		}else if($('#userName').val()==''){
+			alert("이름을 입력해주세요")
+			e.preventDefault();
+		}else if($('#nickName').val()==''){
+			alert("닉네임을 입력해주세요")
+			e.preventDefault();
+		}else if($('#emailaddress').val()==''){
+			alert("이메일를 입력해주세요")
+			e.preventDefault();
+		};
+	});
 </script>
  
  <%@include file="includes/footer.jsp" %>

@@ -60,7 +60,6 @@
 
 </div>
 
-<div><a name="about"></a></div>
 
 <div class="content-explian">
     <div>
@@ -83,6 +82,10 @@
         <p>목표를 달성하세요</p>
         <span style="font-weight: 530; color: rgb(161, 158, 158);">여러분의 계획 달성을 응원합니다</span>
     </div>
+    
 </div>
+<script>
 
+
+</script>
  <%@include file="includes/footer.jsp" %>
