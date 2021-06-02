@@ -51,6 +51,15 @@ public class MemberServiceImpl implements MemberService {
 			 return mapper.idCheck(id);
 		}
 		
+		@Transactional
+		@Override
+		public void modify(MemberDTO member) {
+			
+			
+			
+			 mapper.update(member);
+			
+		}
 		
 		
 

@@ -18,6 +18,8 @@ public interface ObjectService {
 	
 	public void delete(int idbno);
 	
+	
+	
 	public List<ObjectVO> getList(int idbno);
 	
 	

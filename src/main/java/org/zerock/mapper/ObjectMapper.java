@@ -23,4 +23,5 @@ public interface ObjectMapper {
 	public int update(ObjectVO object);
 
 	public void Mdelete(int idbno);
+	public void Pmodify(int idbno);
 }

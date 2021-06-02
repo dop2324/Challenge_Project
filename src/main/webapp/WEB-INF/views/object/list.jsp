@@ -74,27 +74,30 @@ tbody a:visited {
       </div>
       
        <!-- 회원정보 테이블 --> 
+       <form role="form" action="/main/modify" method="post">
       <div class="container-sm">
       <div class="m-info mb-3" style="border-bottom: 1px solid black; margin-top:100px;">회원정보</div>
       <div class="m-wrap" style="padding-left: 10px;">
+      <input type="hidden" class="m-content input-group mb-3" value="${sessionScope.login.idbno }" readonly="readonly" name='idbno' >
       <div class="m-title">아이디</div>
-<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.id }" readonly="readonly" >
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.id }" readonly="readonly" name='id' >
 <div class="m-title">비밀번호</div>
-<input type="password" class="m-content input-group mb-3" value="${sessionScope.login.password }" readonly="readonly" >
+<input type="password" class="m-content input-group mb-3" value="${sessionScope.login.password }" name='password' >
 <div class="m-title">성별</div>
-<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.gender }" readonly="readonly" >
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.gender }" readonly="readonly" name='gender' >
 <div class="m-title">이름</div>
-<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.name }" readonly="readonly" >
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.name }" readonly="readonly" name='name' >
 <div class="m-title">닉네임</div>
-<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.nickname }" readonly="readonly" >
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.nickname }" name='nickname' >
 <div class="m-title">이메일</div>
-<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.email }" readonly="readonly" >
+<input type="text" class="m-content input-group mb-3" value="${sessionScope.login.email }" name='email' >
 </div>
 <div class="btn-wrap" style="display:flex; justify-content: flex-end;">
-      
-      <div class="member-remove mb-3" style="margin-left:30px;" ><a href="/object/modify?idbno=${login.idbno}" class="btn btn-outline-danger">회원 탈퇴</a></div>
+       <button type="submit" data-oper="modify" class="btn btn-outline-success" >회원 정보 수정</button>
+      <div class="member-remove" style="margin-left:30px;" ><a href="/object/delete?idbno=${login.idbno}" class="btn btn-outline-danger" style="padding:19px;">회원 탈퇴</a></div>
     </div>
 </div>
+</form>
 	
      </div> 
 </div>

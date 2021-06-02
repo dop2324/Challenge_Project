@@ -45,7 +45,13 @@ public class MainController {
 		rttr.addFlashAttribute("result", member.getIdbno());
 		return "redirect:/main/login";
 	}
-	
+	@PostMapping("/modify")
+	public String modify(MemberDTO member,HttpSession session, RedirectAttributes rttr) {
+		
+		service.modify(member);
+		
+		return "redirect:/main/home";
+	}
 	
 	
 	@GetMapping("/home")

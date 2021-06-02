@@ -57,4 +57,5 @@ public class ObjectServiceImpl implements ObjectService{
 	public void delete(int idbno) {
 		mapper.Mdelete(idbno);
 	}
+	
 }

@@ -10,6 +10,8 @@ public interface MemberService {
 	
 	public void remove(int idbno);
 	
+	public void modify(MemberDTO member);
+	
 	public MemberDTO login(MemberDTO member);
 	
 	public int idCheck(String id) throws Exception;

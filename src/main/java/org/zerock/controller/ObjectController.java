@@ -1,5 +1,7 @@
 package org.zerock.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -74,6 +76,17 @@ public class ObjectController {
 		service.delete(idbno);
 		rttr.addAttribute("idbno",object.getIdbno());
 		return "redirect:/main/remove";
+	}
+	@PostMapping("/Promodify")
+	public String Promodify(MemberDTO member,@RequestParam("idbno") int idbno, HttpSession session) {
+		
+		
+		member = (MemberDTO) session.getAttribute("login");
+		System.out.println(session.getAttribute("login"));
+		System.out.println(member);
+		Mservice.modify(member);
+		
+		return "redirect:/board/list";
 	}
 }
 
