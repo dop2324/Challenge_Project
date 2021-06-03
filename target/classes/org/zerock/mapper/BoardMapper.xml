@@ -15,10 +15,7 @@
  values(#{title},#{content},#{writer})
 </insert>
 
-<insert id="insertSelectKey">
-	<!-- <selectKey keyProperty="bno" order="AFTER" resultType="int">
-			select LAST_INSERT_ID()
-	</selectKey> -->
+<insert id="insertSelectKey">	
 	<selectKey keyProperty="bno" order="BEFORE" resultType="int">
 			select max(bno)+1 from tbl_board
 	</selectKey>

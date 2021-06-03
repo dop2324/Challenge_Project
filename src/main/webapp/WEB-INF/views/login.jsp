@@ -96,7 +96,9 @@ a {
      	</div>
      
  <script>
- 	
+ if(${Msuccess == 0}){
+		alert("회원정보 수정이 완료되었습니다. 다시 재 로그인 해주세요");
+	};
  </script>
      
  <%@include file="includes/footer.jsp" %>

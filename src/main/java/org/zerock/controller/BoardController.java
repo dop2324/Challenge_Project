@@ -57,11 +57,6 @@ public class BoardController {
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr, HttpSession session) {
 
-		
-
-		
-
-		
 		session.getAttribute("login");
 		service.register(board);
 
@@ -69,6 +64,7 @@ public class BoardController {
 
 		return "redirect:/board/list";
 	}
+	
 
 	@GetMapping({ "/get", "/modify" })
 	public void get(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model,HttpSession session) {
@@ -95,13 +91,7 @@ public class BoardController {
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) {
 
-		
-
-		
-
 		if (service.remove(bno)) {
-
-		
 
 			rttr.addFlashAttribute("result", "success");
 		}

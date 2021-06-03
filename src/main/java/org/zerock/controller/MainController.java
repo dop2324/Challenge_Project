@@ -45,12 +45,15 @@ public class MainController {
 		rttr.addFlashAttribute("result", member.getIdbno());
 		return "redirect:/main/login";
 	}
+	
 	@PostMapping("/modify")
-	public String modify(MemberDTO member,HttpSession session, RedirectAttributes rttr) {
+	public String modify(MemberDTO member, RedirectAttributes rttr,HttpSession session) {
 		
 		service.modify(member);
-		
-		return "redirect:/main/home";
+		int Msuccess = 0;
+		rttr.addFlashAttribute("Msuccess",Msuccess);
+		session.invalidate();
+		return "redirect:/main/login";
 	}
 	
 	
@@ -78,7 +81,7 @@ public class MainController {
     }
 
 	@PostMapping("/login")
-	public String loginCheck(MemberDTO member, HttpSession session, ObjectVO object, RedirectAttributes rttr) {
+	public String loginCheck(MemberDTO member, HttpSession session,RedirectAttributes rttr) {
 		
 		MemberDTO dto= service.login(member);
 		//memeberDTO에 있는 변수들을 세션 영역에 저장
@@ -90,10 +93,6 @@ public class MainController {
 		}
 		session.setAttribute("login", dto);
 		return "redirect:/main/home";
-		/*
-		 * if(session.getAttribute("login")!=null) { return "redirect:/main/home"; }else
-		 * { return "redirect:/main/login"; }
-		 */
 		
 	}
 	

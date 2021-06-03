@@ -39,7 +39,7 @@ public class ObjectServiceImpl implements ObjectService{
 
 	@Override
 	public List<ObjectVO> getList(int idbno) {
-		// TODO Auto-generated method stub
+		
 		log.info("getList::::"+mapper.getList(idbno));
 		return mapper.getList(idbno);
 	}
@@ -47,11 +47,12 @@ public class ObjectServiceImpl implements ObjectService{
 
 	@Override
 	public void register(ObjectVO object) {
-		// TODO Auto-generated method stub
+		
 		
 		mapper.insertSelectKey(object);
 		
 	}
+	
 //	회원정보를 삭제했을 때 외래키 설정 때문에 자식요소인 object 테이블을 먼저 삭제해야한다.
 	@Override
 	public void delete(int idbno) {

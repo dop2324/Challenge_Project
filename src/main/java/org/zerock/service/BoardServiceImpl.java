@@ -36,14 +36,7 @@ public class BoardServiceImpl implements BoardService { // 반드시 implements 
 		
 		mapper.insertSelectKey(board);
 		
-		/*
-		 * if(board.getAttachList()== null|| board.getAttachList().size() <=0) { return;
-		 * }
-		 * 
-		 * board.getAttachList().forEach(attach ->{
-		 * 
-		 * attach.setBno(board.getBno()); attachMapper.insert(attach); });
-		 */
+		
 		
 	}
 	
@@ -53,18 +46,11 @@ public class BoardServiceImpl implements BoardService { // 반드시 implements 
 		
 		log.info("remove...."+bno);
 		
-		/* attachMapper.deleteAll(bno); */
-		
 		return mapper.delete(bno) == 1;
 	}
 	
 	
-	/*
-	 * @Override public List<BoardAttachVO> getAttachList(int bno){
-	 * log.info("get Attach List by bno " + bno);
-	 * 
-	 * return attachMapper.findByBno(bno); }
-	 */
+	
 
 	@Override
 	public BoardVO get(int bno) {
@@ -78,17 +64,8 @@ public class BoardServiceImpl implements BoardService { // 반드시 implements 
 		
 		log.info("modify......"+board);
 		
-		/* attachMapper.deleteAll(board.getBno()); */
-		
 		boolean modifyResult = mapper.update(board) == 1; // mapper.update(board) =1 이면  ==1 과 같기 때문에 true를 반환한다.
 		
-		if(modifyResult && board.getAttachList() != null && board.getAttachList().size()>0) {
-			
-			board.getAttachList().forEach(attach -> {
-				attach.setBno(board.getBno());
-				/* attachMapper.insert(attach); */
-			});
-		}
 		return modifyResult;
 		}
 

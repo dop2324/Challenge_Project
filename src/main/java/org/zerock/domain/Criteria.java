@@ -34,12 +34,7 @@ public class Criteria {
 		                                     // 문자열을 나눌때 사용한다.
 	}
 	
-	/*
-	 * public Map<String, String> getMap(){ if(type == null || type.trim().length()
-	 * == 0) { return null; } //T,C,w String[] arr = type.split("");
-	 * Map<String,String> map = new HashMap<>(); for(String word: arr) {
-	 * map.put(word, keyword); } return map; }
-	 */
+	
 	public String getListLink() {
 	    
 	    UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
