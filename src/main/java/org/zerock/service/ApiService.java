@@ -29,15 +29,6 @@ public class ApiService {
 	
 	
 
-	/*
-	 * public static void Api(String[] args) {
-	 * 
-	 * String result = ApiService.main("30일 공부 챌린지");
-	 * 
-	 * System.out.println("result :::"+ result);
-	 * 
-	 * }
-	 */
     public static String main(String keyword) {
         String clientId = "5dVdg64OeeSmYrSRFuCS"; //애플리케이션 클라이언트 아이디값"
         String clientSecret = "Ne2r_1w8mh"; //애플리케이션 클라이언트 시크릿값"
@@ -129,7 +120,7 @@ public class ApiService {
 		  JSONParser jsonParse =new JSONParser();
 	  		List<ApiVO> resultList = new ArrayList<ApiVO>();
 		  try { 
-	  //JSONParse에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다. 
+	  
 		  JSONObject jsonObj = (JSONObject) jsonParse.parse(jsonData);
 
 		  
@@ -137,8 +128,6 @@ public class ApiService {
 		 
 		
 		 for(int i=0;i<items.size();i++){
-
-			 
 
 				JSONObject item = (JSONObject) items.get(i);
                 ApiVO vo = new ApiVO();
@@ -148,9 +137,6 @@ public class ApiService {
                 resultList.add(vo); 
 			}
 		 		
-		 
-		
-	  
 		  } 
 		  catch (ParseException e) { 
 	

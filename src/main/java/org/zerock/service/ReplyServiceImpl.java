@@ -28,8 +28,6 @@ public class ReplyServiceImpl  implements ReplyService{
 	@Override
 	public int register(ReplyVO vo) {
 		
-		log.info("register.................." + vo);
-		
 		boardMapper.updateReplyCnt(vo.getBno(),1);
 		
 		return mapper.insert(vo);
@@ -38,15 +36,12 @@ public class ReplyServiceImpl  implements ReplyService{
 	@Override
 	public ReplyVO get(int rno) {
 		
-		log.info ("get...................." + rno);
-		
 		return mapper.read(rno);
 	}
 	
 	@Override
 	public int modify(ReplyVO vo) {
 		
-		log.info("modify.................." + vo);
 		
 		return mapper.update(vo);
 	}
@@ -54,8 +49,6 @@ public class ReplyServiceImpl  implements ReplyService{
 	@Transactional
 	@Override
 	public int remove(int rno) {
-		
-		log.info("remove..................." + rno);
 		
 		ReplyVO vo = mapper.read(rno);
 		

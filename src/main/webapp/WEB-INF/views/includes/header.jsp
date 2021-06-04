@@ -43,8 +43,8 @@
             
         </div>
         <div class="head-nav-content">
-
-        </div>
+        <h2 style="margin-top: 200px; margin-left:50px;">Add later</h2>	
+		</div>
        <div class="head-grow"></div>
         <div class="head-content-wrap" style="width: 50%; align-items:center; flex-wrap:wrap;">
             <div class="head-content">

@@ -5,9 +5,7 @@
 <mapper namespace="org.zerock.mapper.BoardMapper">
 
 <select id="getList" resultType="org.zerock.domain.BoardVO">
-<!-- 이와 같이 xml에서 사용하게 되면 mapper의 sql문을 삭제해도 상관없다. 다시 말해서 sql문을 mapper 와 mapper.xml 두가지 방법으로 사용할 수 있다.  -->
 <![CDATA[select*from tbl_board where bno> 0]]>    
-<!-- CDATA태그 조건문에서 부등호를 쓰기위해 사용하는 Mybatis 태그 -->
 </select>
 
 <insert id="insert">
@@ -53,7 +51,7 @@ from (
         <include refid="criteria"></include>
 <![CDATA[order by bno DESC) boardlist where rn> (#{pageNum} -1 ) * #{amount} and rn<=#{pageNum} * #{amount}]]>
 </select>
-					<!-- desc 나중에 수정 -->
+					
 <select id="getTotalCount" resultType="int">
 	select count(*) from tbl_board 
 	where bno > 0

@@ -36,16 +36,12 @@ public class ReplyController {
 
 		int insertCount = service.register(vo);
 
-		
-
 		return insertCount == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		// 삼항 연산자 처리를 하였다.
-		// insert, update , delete 같은 경우 resultype이 없다, 그렇기 때문에 성공했을 때 자동으로 
-		//true, false 값을 전송하는데 이때 true가 1 false가 0 이다!
-		// mapper.xml에서 확인해보면 됨
+		
 	}
 
+	
 	// 댓글 목록 확인
 	@GetMapping(value = "/pages/{bno}/{page}", produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_UTF8_VALUE })
@@ -57,6 +53,7 @@ public class ReplyController {
 
 		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
 	}
+
 	//댓글 삭제/ 조회
 	@GetMapping(value = "/{rno}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<ReplyVO> get(@PathVariable("rno") int rno) {
@@ -66,6 +63,7 @@ public class ReplyController {
 		return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
 	}
 
+	
 	@DeleteMapping(value = "/{rno}", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> remove(@PathVariable("rno") int rno) {
 		

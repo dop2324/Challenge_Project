@@ -14,10 +14,19 @@
 <script>
         $('.head-nav').click(function(){ 
             $('.head-nav').animate({ marginLeft : '100px'});
-            $('.head-nav-content').animate({ marginLeft : '0px' , left : '0px'})
+            $('.head-nav-content').animate({ marginLeft : '0px' , left : '0px'});
             $('.span-nav').css('background','white');
             $('.span-nav').addClass('span-nav-1');
         });
+        
+        $('.head-nav-content').click(function(){
+        	$('.head-nav-content').animate({ marginLeft : '-400px' , left : '0px'});
+        	 $('.span-nav').css('background','black');
+        	 $('.head-nav').animate({ marginLeft : '0px'});	
+        	 $('.span-nav').removeClass('span-nav-1');
+        });
+        
+        
         $('#modalCloseBtn').click(function(){
         	$('#myModal').modal('hide');
         });

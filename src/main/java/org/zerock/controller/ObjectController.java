@@ -62,6 +62,7 @@ public class ObjectController {
 		rttr.addAttribute("idbno",object.getIdbno());
 		return "redirect:/object/list";
 	}
+	
 	@PostMapping("/remove")
 	public String remove(ObjectVO object,@RequestParam("bno") int bno, RedirectAttributes rttr) {
 		if (service.remove(bno)) {

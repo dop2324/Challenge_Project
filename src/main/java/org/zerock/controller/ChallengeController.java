@@ -27,33 +27,34 @@ public class ChallengeController {
 	}
 	
 	@GetMapping(value="/content",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String challengeContent(ApiVO api,Model model) {
+	public String challengeContent(Model model) {
 		
 		
 		String result = ApiService.main("30일 공부 챌린지");
-		//String title2 = ApiService.Parsing(result);
+		
 		 model.addAttribute("result",ApiService.getList(result));
 		
 		
 		return "/challenge/challenge_content";
 	}
+	
 	@GetMapping(value="/content2",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String challengeContent2(ApiVO api,Model model) {
+	public String challengeContent2(Model model) {
 		
 		
 		String result = ApiService.main("30일 운동 챌린지");
-		//String title2 = ApiService.Parsing(result);
+		
 		 model.addAttribute("result",ApiService.getList(result));
 		
 		
 		return "/challenge/challenge_content2";
 	}
 	@GetMapping(value="/content3",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String challengeContent3(ApiVO api,Model model) {
+	public String challengeContent3(Model model) {
 		
 		
 		String result = ApiService.main("30일 챌린지");
-		//String title2 = ApiService.Parsing(result);
+		
 		 model.addAttribute("result",ApiService.getList(result));
 		
 		

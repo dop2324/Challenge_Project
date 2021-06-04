@@ -39,13 +39,9 @@ public class BoardController {
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model, HttpSession session) {
 
-		
-		model.addAttribute("list", service.getList(cri));
-		
+		model.addAttribute("list", service.getList(cri));	
 		int total = service.getTotal(cri);
-		session.getAttribute("login");
-		
-
+		session.getAttribute("login");		
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 

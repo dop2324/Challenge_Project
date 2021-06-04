@@ -130,7 +130,7 @@
      <tr>
      	<th scope="row">${status.count}</th>
      	<td><c:out value="${result.bloggername}" /></td>
-      	<td onClick='location.href="${result.link}"' style="cursor:pointer;">${result.title}</td>
+      	<td onClick='window.open("${result.link}")' style="cursor:pointer;">${result.title}</td>
       	
       </tr> 
 </c:forEach>                    

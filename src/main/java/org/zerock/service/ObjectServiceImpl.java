@@ -21,19 +21,19 @@ public class ObjectServiceImpl implements ObjectService{
 
 	@Override
 	public ObjectVO get(int bno) {
-		// TODO Auto-generated method stub
+		
 		return mapper.read(bno);
 	}
 
 	@Override
 	public boolean modify(ObjectVO object) {
-		// TODO Auto-generated method stub
+		
 		return mapper.update(object) == 1;
 	}
 
 	@Override
 	public boolean remove(int bno) {
-		// TODO Auto-generated method stub
+		
 		return mapper.delete(bno) == 1;
 	}
 
